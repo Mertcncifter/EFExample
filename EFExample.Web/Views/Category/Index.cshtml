@@ -1,0 +1,72 @@
+﻿@using EFExample.Application.Models.Category
+
+@model List<GetCategoryModel>
+@{
+	ViewData["Title"] = "Kategori Listesi";
+}
+
+
+<div class="content">
+	<div class="container-fluid">
+
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800">Kategoriler</h1>
+
+
+		<!-- DataTales Example -->
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<div class="panel-heading">
+					<h5 class="panel-title pull-left">Kategori Listesi</h5>
+					<a href="/Category/Create" class="btn btn-success pull-right mb-20"><i class="icon-plus2"></i> Kategori Ekle</a>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Kategori Adı</th>
+								<th>Oluşturma Tarihi</th>
+								<th>Güncelleme Tarihi</th>
+								<th>Durumu</th>
+								<th class="text-center">İşlemler</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>@item.Id</td>
+									<td>@item.Name</td>
+									<td>@item.CreatedDate</td>
+									<td>@item.ModifiedDate</td>
+									<td>
+										@if (item.StatusType == 1)
+										{
+											<span class="label label-success">Aktif</span>
+										}
+										else
+										{
+											<span class="label label-danger">Pasif</span>
+										}
+
+									</td>
+									<td class="text-center">
+										<a href="/Category/Update/@item.Id" class="btn btn-primary"><i class="icon-pencil"></i> Güncelle</a>
+										<a href="/Category/Delete/@item.Id" class="btn btn-danger"><i class="icon-trash"></i> Sil</a>
+									</td>
+
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</div>

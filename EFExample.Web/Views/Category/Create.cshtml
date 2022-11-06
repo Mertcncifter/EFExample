@@ -1,0 +1,48 @@
+﻿@using EFExample.Application.Models.Category
+@model AddCategoryModel
+@{
+    ViewData["Title"] = "Kategori Ekle";
+}
+
+<div class="content">
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <!-- Basic layout-->
+            <form action="/Category/Create" method="POST" class="form-validate-jquery">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Kategori Bilgileri</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Kategori Adı: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="Name" required="required" placeholder="Kategori Adı">
+                        </div>
+                        <div class="form-group">
+                            <label class="display-block">Durum: <span class="text-danger">*</span></label>
+
+                            <label class="radio-inline">
+                                <input type="radio" class="styled" name="StatusType" value="1" checked="checked">
+                                Aktif
+                            </label>
+
+                            <label class="radio-inline">
+                                <input type="radio" class="styled" name="StatusType" value="2">
+                                Pasif
+                            </label>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success">Bilgileri Kaydet <i class="icon-floppy-disk position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>

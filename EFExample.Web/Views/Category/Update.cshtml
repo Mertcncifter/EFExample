@@ -1,0 +1,53 @@
+﻿@using EFExample.Application.Models.Category
+@model UpdateCategoryModel
+@{
+    ViewData["Title"] = "Kategori Güncelle";
+}
+
+<div class="content">
+
+    <!-- Vertical form options -->
+    <div class="row">
+        <div class="col-md-6">
+
+            <!-- Basic layout-->
+            <form action="/Category/Update" method="POST" class="form-validate-jquery">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">Kategori Bilgileri</h5>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="Id" value="@Model.Id">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kategori Adı:</label>
+                            <input type="text" class="form-control" name="Name" required="required" placeholder="Kategori Adı" value="@Model.Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="display-block">Durum:</label>
+
+                            <label class="radio-inline">
+                                <input type="radio" class="styled" name="StatusType" value="1" @(Model.StatusType == 1 ? " checked='checked''" : "")>
+                                Aktif
+                            </label>
+
+                            <label class="radio-inline">
+                                <input type="radio" class="styled" name="StatusType" value="2" @(Model.StatusType == 2 ? " checked='checked''" : "")>
+                                Pasif
+                            </label>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success">Bilgileri Kaydet <i class="icon-floppy-disk position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
